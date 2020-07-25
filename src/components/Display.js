@@ -1,32 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 export default () => {
+  const [newData, setData] = useState(false);
+
+  useEffect(() => {
+    getData();
     
-const [data, setData] = useState([]);
-
-useEffect(()=> {
-
-      axios.get("http://covid19api.xapix.io/v2/latest")
-  .then(response => {
-      setData(response.data);
-    console.log(response.data);
-  }, error => {
-    console.log(error);
-  });
-
   }, []);
 
+  let getData = async () => {
+    let res = await axios.get("http://covid19api.xapix.io/v2/locations");
+    let { data } = await res; 
 
+    setData(Object.values(data));
+ 
+  };
 
+  let getArray = (object) => {
+    
+    return object !== undefined?Object.values(object):false;
+  }
 
-return(
+  let isNotUndefined = (element) => {
+    return element !== undefined?element:false;
+  }
+
+  return (
     <div>
-<h1> {Object.values(data).map((item) => {
-      return item.confirmed
-    })}</h1>
+      {}
+      <h1> {console.log(isNotUndefined(getArray(getArray(newData)[0]))[0])}</h1>
     </div>
-);
-}
- 
- 
+  );
+};
