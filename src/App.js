@@ -25,6 +25,11 @@ function App() {
       {loading && <h1 id="loadingText">...</h1> /* Tela de carregamento */}
       {!loading && (
         <>
+          <div className="displayMundo">
+            <h1>Mundo</h1>
+      <p>Casos confirmados: {newData.latest.confirmed}</p>
+      <p>Mortes: {newData.latest.deaths}</p>
+          </div>
           <Display countryId={225} dataProps={newData}></Display>
           <Display countryId={28} dataProps={newData}></Display>
           <Display countryId={131} dataProps={newData}></Display>

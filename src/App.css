@@ -23,3 +23,12 @@ header h1{
 #loadingText{
   color:var(--main-color);
 }
+
+.displayMundo{
+  width: 100%;
+
+  height: 200px;
+  background-color: var(--main-color);
+  text-align: center;
+  color: white;
+  }

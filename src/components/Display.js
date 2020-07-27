@@ -23,7 +23,7 @@ export default (props) => {
               </h1>
             </div>
             <div className="informationBlocoDisplay">
-            <p><strong>Casos confirmados:</strong> {locationsList.latest.confirmed}</p>
+            <p><strong>Casos:</strong> {locationsList.latest.confirmed}</p>
             <br/>
             <p><strong>Mortes:</strong> {locationsList.latest.deaths}</p>
             <br/>
