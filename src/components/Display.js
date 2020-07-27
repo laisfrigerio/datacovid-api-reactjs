@@ -5,6 +5,10 @@ import './Display.css';
 export default (props) => {
   const [locationsList, setLocationsList] = useState(false); // Pega o Object com todas as localizações
 
+  function dotsNumber(number){ // Adicionar pontos aos números
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+   }
+
   return (
     <div>
       <div className="blocoDisplay">
@@ -23,11 +27,11 @@ export default (props) => {
               </h1>
             </div>
             <div className="informationBlocoDisplay">
-            <p><strong>Casos:</strong> {locationsList.latest.confirmed}</p>
+            <p><strong>Casos:</strong> {dotsNumber(locationsList.latest.confirmed)}</p>
             <br/>
-            <p><strong>Mortes:</strong> {locationsList.latest.deaths}</p>
+            <p><strong>Mortes:</strong> {dotsNumber(locationsList.latest.deaths)}</p>
             <br/>
-            <p><strong>População:</strong> {locationsList.country_population}</p>
+            <p><strong>População:</strong> {dotsNumber(locationsList.country_population)}</p>
             </div>
           </>
         )}

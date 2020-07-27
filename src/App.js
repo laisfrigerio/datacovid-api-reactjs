@@ -19,17 +19,31 @@ function App() {
     });
   }, []);
 
+  function dotsNumber(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  }
+
   return (
     <div className="App">
-      <header> <h1>COVID-19</h1> </header>
+      <header>
+        {' '}
+        <h1>COVID-19</h1>{' '}
+      </header>
       {loading && <h1 id="loadingText">...</h1> /* Tela de carregamento */}
       {!loading && (
         <>
           <div className="displayMundo">
-            <h1>Mundo</h1>
-      <p>Casos confirmados: {newData.latest.confirmed}</p>
-      <p>Mortes: {newData.latest.deaths}</p>
+            <h2>Mundo</h2>
+            <p>
+              <strong>Casos confirmados:</strong>{' '}
+              {dotsNumber(newData.latest.confirmed)}
+            </p>
+            <p>
+              <strong>Mortes:</strong> {dotsNumber(newData.latest.deaths)}
+            </p>
           </div>
+
+
           <Display countryId={225} dataProps={newData}></Display>
           <Display countryId={28} dataProps={newData}></Display>
           <Display countryId={131} dataProps={newData}></Display>
@@ -41,7 +55,7 @@ function App() {
           {console.log(newData)}
         </>
       )}
-    <footer></footer>
+      <footer></footer>
     </div>
   );
 }
