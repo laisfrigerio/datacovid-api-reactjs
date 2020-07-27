@@ -5,7 +5,7 @@ import './App.css';
 import Display from './components/Display';
 
 function App() {
-  const [newData, setData] = useState(false); // Recebe novos dados
+  const [newData, setNewData] = useState(false); // Recebe novos dados
   const [loading, setLoading] = useState(true); // O dados estão carregando?
 
   useEffect(() => {
@@ -14,7 +14,7 @@ function App() {
       url:
         'https://cors-anywhere.herokuapp.com/http://covid19api.xapix.io/v2/locations',
     }).then((res) => {
-      setData(res.data);
+      setNewData(res.data);
       setLoading(false); // Não está mais carregando
     });
   }, []);
@@ -22,14 +22,21 @@ function App() {
   return (
     <div className="App">
       <header> <h1>COVID-19</h1> </header>
-      {loading && <h1 id="loading">Carregando...</h1> /* Tela de carregamento */}
+      {loading && <h1 id="loadingText">...</h1> /* Tela de carregamento */}
       {!loading && (
         <>
-          <Display countryId={28} data={newData}></Display>
-          <Display countryId={10} data={newData}></Display>
-          <Display countryId={1} data={newData}></Display>
+          <Display countryId={225} dataProps={newData}></Display>
+          <Display countryId={28} dataProps={newData}></Display>
+          <Display countryId={131} dataProps={newData}></Display>
+          <Display countryId={187} dataProps={newData}></Display>
+          <Display countryId={200} dataProps={newData}></Display>
+          <Display countryId={158} dataProps={newData}></Display>
+          <Display countryId={181} dataProps={newData}></Display>
+          <Display countryId={48} dataProps={newData}></Display>
+          {console.log(newData)}
         </>
       )}
+    <footer></footer>
     </div>
   );
 }

@@ -2,24 +2,24 @@
   display: flex;
   flex-wrap: wrap;
   margin: 0px;
-  height: 100%;
   justify-content: center;
 }
 
 header{
-  height: 100px;
+  min-height: 100px;
   width: 100%;
-  background-color: #121011;
+  max-height: 110px;
+  background-color: var(--header-color);
   text-align: center;
-  border-bottom: 4px solid #FF7F11;
+  border-bottom: 4px solid var(--main-color);
 }
 
 
 header h1{
-  color:#FF7F11;
+  color:var(--main-color);
   margin-top: 20px;
 }
 
-#loading{
-  color:#FF7F11;
+#loadingText{
+  color:var(--main-color);
 }

@@ -1,34 +1,44 @@
-.bloco {
-  height: 310px;
+.blocoDisplay {
+
+  height: 250px;
   width: 300px;
   min-width: 300px;
 
-  background-color: white;
-  margin-left: 30px;
+  background-color: var(--secundary-color);
+  margin-left: 10px;
   margin-top: 30px;
   margin-bottom: 10px;
   border-radius: 10px;
-  border: 4px solid white;
+  border: 4px solid var(--secundary-color);
 
 }
-.bloco:hover {
-  border: 4px solid #FF7F11;
+
+
+.blocoDisplay:hover {
+  border: 4px solid var(--main-color);
 }
-.bloco h1 {
+.blocoDisplay h1 {
   margin-block-start: 0px;
+  color: var(--secundary-color);
 }
 
-.headerBloco{
+.headerBlocoDisplay{
   width: 100%;
   height: 50px;
-  background-color: #FF7F11;
+  background-color: var(--main-color);
   padding-top: 20px;
-  color: white;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   text-align: center;
 }
 
-.information{
+.informationBlocoDisplay{
   padding:30px;
+  font-size: 18px;
+}
+
+footer{
+  width: 100%;
+  height: 100px;
+
 }
