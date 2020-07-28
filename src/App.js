@@ -23,11 +23,19 @@ function App() {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
   }
 
+  function formatDateString(date){
+    let onlyDate = date.slice(0, -17);
+    let year = onlyDate.slice(0, -6);
+    let month = onlyDate.slice(5, -3);
+    let day = onlyDate.slice(8, 10);
+    return day + "/"+month + "/" + year;
+  }
+
   return (
     <div className="App">
       <header>
-        {' '}
-        <h1>COVID-19</h1>{' '}
+
+        <h1>COVID-19</h1>
       </header>
       {loading && <h1 id="loadingText">...</h1> /* Tela de carregamento */}
       {!loading && (
@@ -35,12 +43,16 @@ function App() {
           <div className="displayMundo">
             <h2>Mundo</h2>
             <p>
-              <strong>Casos confirmados:</strong>{' '}
+              <strong>Casos confirmados: </strong>
               {dotsNumber(newData.latest.confirmed)}
             </p>
             <p>
               <strong>Mortes:</strong> {dotsNumber(newData.latest.deaths)}
             </p>
+            <p>
+              <strong>Última atualização:</strong> {formatDateString(newData.locations[0].last_updated)}
+            </p>
+
           </div>
 
 

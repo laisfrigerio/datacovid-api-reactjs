@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './Display.css';
 
 export default (props) => {
-  const [locationsList, setLocationsList] = useState(false); // Pega o Object com todas as localizações
+  const [locationsList, setLocationsList] = useState(false);
 
   function dotsNumber(number){ // Adicionar pontos aos números
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
