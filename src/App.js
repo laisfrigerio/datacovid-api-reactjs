@@ -8,6 +8,7 @@ function App() {
   const [newData, setNewData] = useState(false); // Recebe novos dados
   const [loading, setLoading] = useState(true); // O dados estão carregando?
 
+
   useEffect(() => {
     axios({
       method: 'GET',
@@ -16,6 +17,9 @@ function App() {
     }).then((res) => {
       setNewData(res.data);
       setLoading(false); // Não está mais carregando
+
+
+
     });
   }, []);
 
@@ -23,23 +27,41 @@ function App() {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
   }
 
-  function formatDateString(date){
+  function sortLocationsArray(){
+
+    return Object.values(newData.locations).sort((a, b) => (a.latest.deaths < b.latest.deaths) ? 1 : -1)
+
+  }
+
+  function generateDivs() {
+
+    var displayDivs = [];
+
+    for (let i = 0; i < 16; i++) {
+      displayDivs.push(<Display key={i} dataProps={sortLocationsArray()[i]}></Display>);
+
+    }
+
+    return displayDivs;
+  }
+
+  function formatDateString(date) {
     let onlyDate = date.slice(0, -17);
     let year = onlyDate.slice(0, -6);
     let month = onlyDate.slice(5, -3);
     let day = onlyDate.slice(8, 10);
-    return day + "/"+month + "/" + year;
+    return day + '/' + month + '/' + year;
   }
 
   return (
     <div className="App">
       <header>
-
         <h1>COVID-19</h1>
       </header>
       {loading && <h1 id="loadingText">...</h1> /* Tela de carregamento */}
       {!loading && (
         <>
+
           <div className="displayMundo">
             <h2>Mundo</h2>
             <p>
@@ -50,24 +72,18 @@ function App() {
               <strong>Mortes:</strong> {dotsNumber(newData.latest.deaths)}
             </p>
             <p>
-              <strong>Última atualização:</strong> {formatDateString(newData.locations[0].last_updated)}
+              <strong>Última atualização: </strong>
+              {formatDateString(newData.locations[0].last_updated)}
             </p>
-
           </div>
 
+          {generateDivs()}
 
-          <Display countryId={225} dataProps={newData}></Display>
-          <Display countryId={28} dataProps={newData}></Display>
-          <Display countryId={131} dataProps={newData}></Display>
-          <Display countryId={187} dataProps={newData}></Display>
-          <Display countryId={200} dataProps={newData}></Display>
-          <Display countryId={158} dataProps={newData}></Display>
-          <Display countryId={181} dataProps={newData}></Display>
-          <Display countryId={48} dataProps={newData}></Display>
-          {console.log(newData)}
+
         </>
       )}
-      <footer></footer>
+
+         <footer></footer>
     </div>
   );
 }
