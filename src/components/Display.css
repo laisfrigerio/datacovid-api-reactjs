@@ -1,4 +1,4 @@
-.blocoDisplay {
+.cardDisplay {
 
   min-height: 260px;
   width: 300px;
@@ -14,16 +14,16 @@
 }
 
 
-.blocoDisplay:hover {
+.cardDisplay:hover {
   border: 4px solid var(--main-color);
   box-shadow: 4px 3px 2px rgba(192, 201, 184);
 }
-.blocoDisplay h1 {
+.cardDisplay h1 {
   margin-block-start: 0px;
   color: var(--secundary-color);
 }
 
-.headerBlocoDisplay{
+.headerCardDisplay{
   width: 100%;
   height: 50px;
   background-color: var(--main-color);
@@ -31,11 +31,11 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-.headerBlocoDisplay h1{
+.headerCardDisplay h1{
 margin-left: 26px;
 }
 
-.informationBlocoDisplay{
+.informationCardDisplay{
   padding:30px;
   font-size: 19px;
   color: var(--font-color);
@@ -43,6 +43,6 @@ margin-left: 26px;
 
 footer{
   width: 100%;
-  height: 100px;
-
+  height: 70px;
+  background-color: var(--main-color);
 }

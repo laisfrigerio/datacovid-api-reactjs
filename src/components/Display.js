@@ -7,39 +7,39 @@ export default (props) => {
 
   function dotsNumber(number) {
     // Adicionar pontos aos números
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return number !== null?number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.'):"?";
   }
 
   return (
-    <div>
-      <div className="blocoDisplay">
+
+      <div className="cardDisplay">
         {!countryData && setCountryData(props.dataProps)}
 
         {countryData /* Evita que chame locations undefined */ && (
           <>
-            <div className="headerBlocoDisplay">
+            <div className="headerCardDisplay">
               <h1>
                 {countryData.country} ({countryData.country_code})
               </h1>
             </div>
-            <div className="informationBlocoDisplay">
+            <div className="informationCardDisplay">
               <p>
-                <strong>Casos:</strong>{' '}
+                <strong>Casos: </strong>
                 {dotsNumber(countryData.latest.confirmed)}
               </p>
               <br />
               <p>
-                <strong>Mortes:</strong> {dotsNumber(countryData.latest.deaths)}
+                <strong>Mortes: </strong> {dotsNumber(countryData.latest.deaths)}
               </p>
               <br />
               <p>
-                <strong>População:</strong>{' '}
+                <strong>População: </strong>
                 {dotsNumber(countryData.country_population)}
               </p>
             </div>
           </>
         )}
       </div>
-    </div>
+
   );
 };

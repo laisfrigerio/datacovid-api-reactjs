@@ -7,13 +7,14 @@ import Display from './components/Display';
 function App() {
   const [newData, setNewData] = useState(false); // Recebe novos dados
   const [loading, setLoading] = useState(true); // O dados estão carregando?
+  const [loopSize, setLoopSize] = useState(12);
 
 
   useEffect(() => {
     axios({
       method: 'GET',
       url:
-        'https://cors-anywhere.herokuapp.com/http://covid19api.xapix.io/v2/locations',
+        'http://covid19api.xapix.io/v2/locations',
     }).then((res) => {
       setNewData(res.data);
       setLoading(false); // Não está mais carregando
@@ -24,7 +25,7 @@ function App() {
   }, []);
 
   function dotsNumber(number) {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return number !== null?number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.'):"?";
   }
 
   function sortLocationsArray(){
@@ -33,11 +34,15 @@ function App() {
 
   }
 
+  function incLoopSize(){
+    setLoopSize(loopSize + 8);
+  }
+
   function generateDivs() {
 
     var displayDivs = [];
 
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < loopSize; i++) {
       displayDivs.push(<Display key={i} dataProps={sortLocationsArray()[i]}></Display>);
 
     }
@@ -62,7 +67,7 @@ function App() {
       {!loading && (
         <>
 
-          <div className="displayMundo">
+          <div className="displayWorld">
             <h2>Mundo</h2>
             <p>
               <strong>Casos confirmados: </strong>
@@ -76,13 +81,15 @@ function App() {
               {formatDateString(newData.locations[0].last_updated)}
             </p>
           </div>
-
+          <div className="cards">
           {generateDivs()}
-
+          </div>
 
         </>
       )}
-
+        <div className="buttonPlusDiv">
+          <button onClick={() => {incLoopSize()}}>+</button>
+        </div>
          <footer></footer>
     </div>
   );
