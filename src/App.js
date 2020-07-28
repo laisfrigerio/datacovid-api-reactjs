@@ -29,7 +29,7 @@ function App() {
 
   function sortLocationsArray(){
 
-    return Object.values(newData.locations).sort((a, b) => (a.latest.deaths < b.latest.deaths) ? 1 : -1)
+    return Object.values(newData.locations).sort((a, b) => (a.latest.confirmed < b.latest.confirmed) ? 1 : -1)
 
   }
 
