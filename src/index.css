@@ -9,6 +9,7 @@ html, body, #root{
 /* Todas as cores usadas*/
 :root {
   --main-color:#f25757;
+  --main-color-hover:#E85454;
   --secundary-color:#EAF2E3;
   --bg-color:#D6DECF;
   --header-color:#EAF2E3;

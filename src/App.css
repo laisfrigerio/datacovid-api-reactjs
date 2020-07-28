@@ -39,11 +39,13 @@ header h1:hover {
   min-height: 250px;
   background-color: var(--main-color);
   text-align: center;
-  color: white;
+  color: var(--secundary-color);
   font-size: 25px;
   margin-top: 100px;
 }
-
+.displayMundo:hover {
+  background-color: var(--main-color-hover);
+}
 .displayMundo h2 {
   margin-top: 20px;
   margin-bottom: 20px;
