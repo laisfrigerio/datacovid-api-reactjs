@@ -7,7 +7,7 @@ import Display from './components/Display';
 function App() {
   const [newData, setNewData] = useState(false); // Recebe novos dados
   const [loading, setLoading] = useState(true); // O dados estão carregando?
-  const [loopSize, setLoopSize] = useState(12);
+  const [loopSize, setLoopSize] = useState(8);
 
   useEffect(() => {
     axios({
@@ -36,15 +36,15 @@ function App() {
   }
 
   function generateDivs() {
-    var displayDivs = [];
+    var cardsDivs = [];
 
     for (let i = 0; i < loopSize; i++) {
-      displayDivs.push(
+      cardsDivs.push(
         <Display key={i} dataProps={sortLocationsArray()[i]}></Display>
       );
     }
 
-    return displayDivs;
+    return cardsDivs;
   }
 
   function formatDateString(date) {
@@ -62,12 +62,15 @@ function App() {
       </header>
       {
         loading &&
+        /* Tela de carregamento */
+        /* https://loading.io */
           <>
-          <div class="lds-ring"><div></div><div></div><div></div></div>
+          <div className="lds-ring"><div></div><div></div><div></div></div>
           </>
-         /* Tela de carregamento */
+
       }
       {!loading && (
+        /* Carregou */
         <>
           <div className="displayWorld">
             <h2>Mundo</h2>

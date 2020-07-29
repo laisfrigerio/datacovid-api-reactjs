@@ -11,7 +11,7 @@ header {
   max-height: 110px;
   background-color: var(--header-color);
   text-align: center;
-  border-bottom: 4px solid var(--main-color);
+  border-bottom: 5px solid var(--main-color);
   position: fixed;
   z-index: 2;
 }
