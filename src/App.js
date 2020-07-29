@@ -61,11 +61,11 @@ function App() {
         <h1>COVID-19</h1>
       </header>
       {
-        loading && (
-          <div className="loadingDiv">
-            <h1 id="loadingText">...</h1>
-          </div>
-        ) /* Tela de carregamento */
+        loading &&
+          <>
+          <div class="lds-ring"><div></div><div></div><div></div></div>
+          </>
+         /* Tela de carregamento */
       }
       {!loading && (
         <>
