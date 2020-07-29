@@ -96,3 +96,9 @@ header h1:hover {
   height: 100vh;
 
 }
+
+@media only screen and (max-width: 375px) {
+  .displayWorld {
+    font-size: 20px;
+  }
+}

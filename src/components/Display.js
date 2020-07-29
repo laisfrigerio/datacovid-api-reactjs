@@ -7,44 +7,60 @@ export default (props) => {
 
   function dotsNumber(number) {
     // Adicionar pontos aos números
-    return number !== null?number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.'):"?";
+    return number !== null
+      ? number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+      : '?';
   }
 
   return (
+    <div className="cardDisplay">
+      {!countryData && setCountryData(props.dataProps)}
 
-      <div className="cardDisplay">
-        {!countryData && setCountryData(props.dataProps)}
-
-        {countryData /* Evita que chame locations undefined */ && (
-          <>
-            <div className="headerCardDisplay">
-              {countryData.country.length < 12?<h2>
+      {countryData /* Evita que chame locations undefined */ && (
+        <>
+          <div className="headerCardDisplay">
+            {countryData.country.length < 12 ? (
+              <h2>
                 {countryData.country} ({countryData.country_code})
-              </h2>:<h3>
+              </h2>
+            ) : (
+              <h3>
                 {countryData.country} ({countryData.country_code})
-              </h3>}
-
-            </div>
-            <div className="informationCardDisplay">
+              </h3>
+            )}
+          </div>
+          <div className="informationCardDisplay">
+            <p>
+              <strong>Casos: </strong>
+              {dotsNumber(countryData.latest.confirmed)}
+            </p>
+            <br />
+            <p>
+              <strong>Mortes: </strong> {dotsNumber(countryData.latest.deaths)}
+            </p>
+            {countryData.province === '' ? (
+              <>
+                <br />
+                <p>
+                  <strong>População: </strong>
+                  {dotsNumber(countryData.country_population)}
+                </p>
+              </>
+            ) : (
+              false
+            )}
+            <br />
+            {countryData.province !== '' ? (
               <p>
-                <strong>Casos: </strong>
-                {dotsNumber(countryData.latest.confirmed)}
+                <strong>Província: </strong>
+                {dotsNumber(countryData.province)}
               </p>
-              <br />
-              <p>
-                <strong>Mortes: </strong> {dotsNumber(countryData.latest.deaths)}
-              </p>
-              <br />
-              <p>
-                <strong>População: </strong>
-                {dotsNumber(countryData.country_population)}
-              </p>
-
-              {}
-            </div>
-          </>
-        )}
-      </div>
-
+            ) : (
+              false
+            )}
+          </div>
+        </>
+      )}
+    </div>
   );
 };

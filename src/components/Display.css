@@ -42,7 +42,7 @@ margin-left: 15px;
   }
 
 .informationCardDisplay{
-  padding:30px;
+  padding:20px;
   font-size: 19px;
   color: var(--font-color);
 }
@@ -51,4 +51,12 @@ footer{
   width: 100%;
   height: 70px;
   background-color: var(--main-color);
+}
+
+
+@media only screen and (max-width: 414px) {
+  .cardDisplay {
+    width: 90%;
+    margin-left: 0px;
+  }
 }

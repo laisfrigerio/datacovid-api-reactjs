@@ -9,43 +9,39 @@ function App() {
   const [loading, setLoading] = useState(true); // O dados estão carregando?
   const [loopSize, setLoopSize] = useState(12);
 
-
   useEffect(() => {
     axios({
       method: 'GET',
-      url:
-        'http://covid19api.xapix.io/v2/locations',
+      url: 'http://covid19api.xapix.io/v2/locations',
     }).then((res) => {
       setNewData(res.data);
       setLoading(false); // Não está mais carregando
-
-
-
     });
   }, []);
 
   function dotsNumber(number) {
-    return number !== null?number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.'):"?";
+    return number !== null
+      ? number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+      : '?';
   }
 
-  function sortLocationsArray(){
-
-    return Object.values(newData.locations).sort((a, b) => (a.latest.confirmed < b.latest.confirmed) ? 1 : -1)
-
+  function sortLocationsArray() {
+    return Object.values(newData.locations).sort((a, b) =>
+      a.latest.confirmed < b.latest.confirmed ? 1 : -1
+    );
   }
 
-  function incLoopSize(){
-    if((loopSize + 8) < newData.locations.length)
-    setLoopSize(loopSize + 8);
+  function incLoopSize() {
+    if (loopSize + 8 < newData.locations.length) setLoopSize(loopSize + 8);
   }
 
   function generateDivs() {
-
     var displayDivs = [];
 
     for (let i = 0; i < loopSize; i++) {
-      displayDivs.push(<Display key={i} dataProps={sortLocationsArray()[i]}></Display>);
-
+      displayDivs.push(
+        <Display key={i} dataProps={sortLocationsArray()[i]}></Display>
+      );
     }
 
     return displayDivs;
@@ -64,10 +60,15 @@ function App() {
       <header>
         <h1>COVID-19</h1>
       </header>
-      {loading && <div className="loadingDiv"><h1 id="loadingText">...</h1></div> /* Tela de carregamento */}
+      {
+        loading && (
+          <div className="loadingDiv">
+            <h1 id="loadingText">...</h1>
+          </div>
+        ) /* Tela de carregamento */
+      }
       {!loading && (
         <>
-
           <div className="displayWorld">
             <h2>Mundo</h2>
             <p>
@@ -82,16 +83,17 @@ function App() {
               {formatDateString(newData.locations[0].last_updated)}
             </p>
           </div>
-          <div className="cards">
-          {generateDivs()}
-          </div>
-
+          <div className="cards">{generateDivs()}</div>
         </>
       )}
-        <div className="buttonPlusDiv">
-          <button onClick={() => {incLoopSize()}}>+</button>
-        </div>
-         <footer></footer>
+      <div className="buttonPlusDiv">
+        {loopSize < 260 && newData !== false? (
+          <button
+            onClick={() => {
+              incLoopSize();
+            }}>+</button>) : (false)}
+      </div>
+      <footer></footer>
     </div>
   );
 }
