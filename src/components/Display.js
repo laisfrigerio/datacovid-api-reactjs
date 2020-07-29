@@ -18,9 +18,12 @@ export default (props) => {
         {countryData /* Evita que chame locations undefined */ && (
           <>
             <div className="headerCardDisplay">
-              <h1>
+              {countryData.country.length < 12?<h2>
                 {countryData.country} ({countryData.country_code})
-              </h1>
+              </h2>:<h3>
+                {countryData.country} ({countryData.country_code})
+              </h3>}
+
             </div>
             <div className="informationCardDisplay">
               <p>
@@ -36,6 +39,8 @@ export default (props) => {
                 <strong>População: </strong>
                 {dotsNumber(countryData.country_population)}
               </p>
+
+              {}
             </div>
           </>
         )}

@@ -25,15 +25,21 @@
 
 .headerCardDisplay{
   width: 100%;
-  height: 50px;
+  min-height: 50px;
   background-color: var(--main-color);
   padding-top: 20px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  color: var(--secundary-color);
 }
-.headerCardDisplay h1{
-margin-left: 26px;
+.headerCardDisplay h2{
+margin-left: 15px;
 }
+.headerCardDisplay h3{
+  margin-left: 15px;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  }
 
 .informationCardDisplay{
   padding:30px;

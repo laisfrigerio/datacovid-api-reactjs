@@ -91,3 +91,8 @@ header h1:hover {
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.loadingDiv{
+  height: 100vh;
+
+}

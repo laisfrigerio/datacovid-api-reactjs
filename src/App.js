@@ -35,6 +35,7 @@ function App() {
   }
 
   function incLoopSize(){
+    if((loopSize + 8) < newData.locations.length)
     setLoopSize(loopSize + 8);
   }
 
@@ -63,7 +64,7 @@ function App() {
       <header>
         <h1>COVID-19</h1>
       </header>
-      {loading && <h1 id="loadingText">...</h1> /* Tela de carregamento */}
+      {loading && <div className="loadingDiv"><h1 id="loadingText">...</h1></div> /* Tela de carregamento */}
       {!loading && (
         <>
 
