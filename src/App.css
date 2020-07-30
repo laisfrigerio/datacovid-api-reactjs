@@ -6,7 +6,7 @@
 }
 
 header {
-  min-height: 100px;
+  min-height: 80px;
   width: 100%;
   max-height: 110px;
   background-color: var(--header-color);
@@ -14,21 +14,31 @@ header {
   border-bottom: 5px solid var(--main-color);
   position: fixed;
   z-index: 2;
+  display: inline-flex;
+  justify-content: center;
+  padding-top: 20px;
 }
 
-header h1 {
+header a {
   /* Logo */
   color: var(--main-color);
+  text-decoration: none;
+  font-size: 45px;
+  font-weight: bold;
 
-  font-size: 40px;
-  width: 200px;
-  margin: auto;
-  margin-top: 20px;
-  cursor: pointer;
 }
-header h1:hover {
-  font-size: 41px;
+header a:hover {
 
+
+}
+
+header p {
+
+color: var(--main-color);
+margin-top: 20px;
+width: min-content;
+font-weight: bold;
+margin-top: 30px;
 }
 
 .displayWorld {
@@ -69,9 +79,11 @@ header h1:hover {
   background-color:var(--secundary-color);
   font-size: 50px;
   color: var(--main-color);
-  text-align: center;
   border: 3px solid var(--main-color);
   outline:none;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 .buttonPlusDiv button:hover {
   color: var(--secundary-color);
@@ -129,6 +141,24 @@ header h1:hover {
 }
 
 /* End Ring loading */
+
+
+footer{
+  display: flex;
+  justify-content: center;
+}
+
+footer p {
+  font-size: 11px;
+  color: var(--secundary-color);
+  margin-top: 30px;
+}
+
+footer a {
+text-decoration: none;
+color: var(--secundary-color);
+}
+
 
 @media only screen and (max-width: 375px) {
   .displayWorld {

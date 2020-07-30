@@ -58,7 +58,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>COVID-19</h1>
+        <p>data</p><a href="/">COVID</a>
       </header>
       {
         loading &&
@@ -96,7 +96,7 @@ function App() {
               incLoopSize();
             }}>+</button>) : (false)}
       </div>
-      <footer></footer>
+      <footer><p>Desenvolvido por <a target="_blank" href="https://github.com/Lukenoutte">@Lukenoutte</a></p></footer>
     </div>
   );
 }
