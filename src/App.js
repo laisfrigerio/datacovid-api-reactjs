@@ -96,7 +96,7 @@ function App() {
               incLoopSize();
             }}>+</button>) : (false)}
       </div>
-      <footer><p>Desenvolvido por <a target="_blank" href="https://github.com/Lukenoutte">@Lukenoutte</a></p></footer>
+      <footer><p>Desenvolvido por <a target="_blank" rel="noopener noreferrer" href="https://github.com/Lukenoutte">@Lukenoutte</a></p></footer>
     </div>
   );
 }
