@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     axios({
       method: 'GET',
-      url: 'http://covid19api.xapix.io/v2/locations',
+      url: 'https://cors-anywhere.herokuapp.com/http://covid19api.xapix.io/v2/locations',
     }).then((res) => {
       setNewData(res.data);
       setLoading(false); // Não está mais carregando
