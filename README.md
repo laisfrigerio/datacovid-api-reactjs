@@ -1,6 +1,7 @@
 
 Site online em: https://datacovid.netlify.app
 
+API: https://www.xapix.io/covid-19-initiative
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
