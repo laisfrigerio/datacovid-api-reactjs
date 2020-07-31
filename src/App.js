@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import './App.css';
 import Display from './components/SimpleCard';
-import WordCard from "./components/WorldCard"
+import WordCard from './components/WorldCard';
 function App() {
   const [newData, setNewData] = useState(false); // Recebe novos dados
   const [loading, setLoading] = useState(true); // O dados estão carregando?
@@ -11,6 +11,8 @@ function App() {
   // const isMobile = window.innerWidth <= 500;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     axios({
       method: 'GET',
       url: 'https://covid19api.xapix.io/v2/locations',
@@ -20,7 +22,6 @@ function App() {
     });
   }, []);
 
-
   function sortLocationsArray() {
     return Object.values(newData.locations).sort((a, b) =>
       a.latest.confirmed < b.latest.confirmed ? 1 : -1
@@ -29,9 +30,7 @@ function App() {
 
   function incLoopSize() {
     if (loopSize + 8 < newData.locations.length) setLoopSize(loopSize + 8);
-    // if(isMobile){
-    //   window.scrollTo(0, 0);
-    // }
+
   }
 
   function generateCardDivs() {
@@ -46,34 +45,58 @@ function App() {
     return cardsDivs;
   }
 
-
   return (
-    <div className="App">
+
+    <div className="app">
       <header>
-      <a href="/"><h1><p>data</p>COVID</h1></a>
+        <a href="/" title="Data Covid" >
+          <h1>
+            <p>data</p>COVID
+          </h1>
+        </a>
       </header>
-      {
-        loading &&
+
+      {loading && (
         /* Tela de carregamento */
         /* https://loading.io */
-          <div className="lds-ring"><div></div><div></div><div></div></div>
-      }
+        <div className="loading-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      )}
+
       {!loading && (
         /* Carregou */
         <>
-        <WordCard dataProps={newData}></WordCard>
+          <WordCard dataProps={newData}></WordCard>
 
-        <div className="cards">{generateCardDivs() /* All Cards */}</div>
+          <div className="cards">{generateCardDivs() /* All Cards */}</div>
         </>
       )}
 
-      <div className="buttonPlusDiv">
-        {loopSize < 260 && newData !== false? (
-          <button
-            onClick={incLoopSize}>+</button>) : (false)}
+      <div className="button-plus-div">
+        {loopSize < 260 && newData !== false ? (
+          <button title="Ver mais" onClick={incLoopSize}>+</button>
+        ) : (
+          false
+        )}
       </div>
 
-      <footer><p>Desenvolvido por <a target="_blank" rel="noopener noreferrer" href="https://github.com/Lukenoutte">@Lukenoutte</a></p></footer>
+      <footer>
+        <p>
+          Desenvolvido por{' '}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Github"
+            href="https://github.com/Lukenoutte"
+          >
+            @Lukenoutte
+          </a>
+        </p>
+      </footer>
+
     </div>
   );
 }

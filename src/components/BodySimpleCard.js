@@ -11,7 +11,7 @@ export default (props) => {
 
 return(
 
-<div className="bodyCard">
+<div className="body-card">
 <p>
   <strong>Casos: </strong>
   {dotsNumber(props.dataProps.latest.confirmed)}

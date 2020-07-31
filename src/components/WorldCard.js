@@ -18,7 +18,7 @@ export default (props) => {
   }
 
 return(
-  <div className="displayWorld">
+  <div className="card-world">
   <h2>Mundo</h2>
   <p>
     <strong>Casos confirmados: </strong>

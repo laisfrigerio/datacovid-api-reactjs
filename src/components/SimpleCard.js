@@ -8,12 +8,12 @@ export default (props) => {
 
 
   return (
-    <div className="simpleCard">
+    <div className="simple-card">
       {!countryData && setCountryData(props.dataProps)}
 
       {countryData /* Evita que chame locations undefined */ && (
         <>
-          <div className="headerCard">
+          <div className="header-card">
             {countryData.country.length < 12 ? (
               <h2>
                 {countryData.country} ({countryData.country_code})

@@ -1,4 +1,4 @@
-.displayWorld {
+.card-world {
   width: 100%;
 
   min-height: 250px;
@@ -8,21 +8,21 @@
   font-size: 25px;
   margin-top: 100px;
 }
-.displayWorld:hover {
+.card-world:hover {
   background-color: var(--world-hover);
 }
-.displayWorld h2 {
+.card-world h2 {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.displayWorld p {
+.card-world p {
   margin-bottom: 10px;
 }
 
 
 @media only screen and (max-width: 375px) {
-  .displayWorld {
+  .card-world {
     font-size: 20px;
   }
 }
