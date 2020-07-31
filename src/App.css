@@ -9,7 +9,7 @@ header {
   min-height: 80px;
   width: 100%;
   max-height: 110px;
-  background-color: var(--header-color);
+  background-color: var(--secundary-color);
   text-align: center;
   border-bottom: 5px solid var(--main-color);
   position: fixed;
@@ -27,7 +27,9 @@ header a {
   font-weight: bold;
   height: fit-content;
 }
-
+header a:hover {
+color: var(--world-hover);
+}
 header h1{
   display: inline-flex;
 }
@@ -36,7 +38,7 @@ header h1{
 header p {
 
 color: var(--main-color);
-margin-top: 20px;
+margin-top: 17px;
 width: min-content;
 font-weight: bold;
 font-size: 20px;
@@ -55,15 +57,13 @@ font-size: 20px;
 .buttonPlusDiv button {
   height: 60px;
   width: 60px;
-  border-radius: 40px;
+  border-radius: 60px;
   background-color:var(--secundary-color);
   font-size: 50px;
   color: var(--main-color);
   border: 3px solid var(--main-color);
   outline:none;
-  display: flex;
-  align-content: center;
-  justify-content: center;
+
 }
 .buttonPlusDiv button:hover {
   color: var(--secundary-color);
@@ -146,3 +146,6 @@ color: var(--secundary-color);
 }
 
 
+footer a:hover{
+  color: var(--dark-main-color);
+}

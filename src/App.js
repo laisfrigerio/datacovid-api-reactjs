@@ -8,11 +8,12 @@ function App() {
   const [newData, setNewData] = useState(false); // Recebe novos dados
   const [loading, setLoading] = useState(true); // O dados estão carregando?
   const [loopSize, setLoopSize] = useState(8); // Quantos cards serão carregados
+  const isMobile = window.innerWidth <= 500;
 
   useEffect(() => {
     axios({
       method: 'GET',
-      url: 'https://cors-anywhere.herokuapp.com/http://covid19api.xapix.io/v2/locations',
+      url: 'https://covid19api.xapix.io/v2/locations',
     }).then((res) => {
       setNewData(res.data);
       setLoading(false); // Não está mais carregando
@@ -28,6 +29,9 @@ function App() {
 
   function incLoopSize() {
     if (loopSize + 8 < newData.locations.length) setLoopSize(loopSize + 8);
+    // if(isMobile){
+    //   window.scrollTo(0, 0);
+    // }
   }
 
   function generateCardDivs() {
