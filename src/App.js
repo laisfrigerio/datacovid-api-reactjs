@@ -8,7 +8,7 @@ function App() {
   const [newData, setNewData] = useState(false); // Recebe novos dados
   const [loading, setLoading] = useState(true); // O dados estão carregando?
   const [loopSize, setLoopSize] = useState(8); // Quantos cards serão carregados
-  const isMobile = window.innerWidth <= 500;
+  // const isMobile = window.innerWidth <= 500;
 
   useEffect(() => {
     axios({
