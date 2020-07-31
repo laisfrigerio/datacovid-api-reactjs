@@ -1,5 +1,6 @@
 import React from 'react';
 import "./WorldCard.css"
+import { Public } from '@material-ui/icons';
 
 export default (props) => {
 
@@ -19,7 +20,9 @@ export default (props) => {
 
 return(
   <div className="card-world">
-  <h2>Mundo</h2>
+  <div className="world-and-icon">
+  <h2>Mundo</h2> <Public className="icon"></Public>
+  </div>
   <p>
     <strong>Casos confirmados: </strong>
     {dotsNumber(props.dataProps.latest.confirmed)}

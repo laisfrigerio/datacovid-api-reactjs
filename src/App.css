@@ -59,6 +59,9 @@ header p {
   color: var(--main-color);
   border: 3px solid var(--main-color);
   outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .button-plus-div button:hover {
   color: var(--secundary-color);
@@ -72,6 +75,7 @@ header p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  outline: none;
 }
 
 /* Ring loading */
@@ -117,25 +121,35 @@ header p {
 
 /* End Ring loading */
 
-footer {
+.button-scrolltop-div{
+position: fixed;
+z-index: 2;
+right: 10px;
+bottom: 10px;
+}
+.button-scrolltop-div button{
+height: 50px;
+width: 50px;
+background-color: var(--main-color);
+color: var(--secundary-color);
+font-size: 20px;
+border-radius: 30px;
+outline: none;
+border: 2px solid var(--secundary-color);
+opacity: 90%;
+cursor: pointer;
+}
+
+.button-scrolltop-div button{
   display: flex;
-  justify-content: center;
-  width: 100%;
-  min-height: 70px;
-  background-color: var(--main-color);
+justify-content: center;
+  align-items: center;
+}
+.button-scrolltop-div button:hover{
+  border: 2px solid var(--world-hover);
 }
 
-footer p {
-  font-size: 12px;
-  color: var(--secundary-color);
-  margin-top: 30px;
-}
+.button-scrolltop-div .icon{
+font-size: 30px;
 
-footer a {
-  text-decoration: none;
-  color: var(--secundary-color);
-}
-
-footer a:hover {
-  color: var(--dark-main-color);
 }

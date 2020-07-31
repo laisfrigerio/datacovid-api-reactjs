@@ -7,17 +7,25 @@
   color: var(--secundary-color);
   font-size: 25px;
   margin-top: 100px;
+
 }
 .card-world:hover {
   background-color: var(--world-hover);
 }
-.card-world h2 {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
+
 
 .card-world p {
   margin-bottom: 10px;
+}
+.world-and-icon{
+  display: inline-flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.world-and-icon .icon{
+margin-left: 10px;
+font-size: 40px;
 }
 
 

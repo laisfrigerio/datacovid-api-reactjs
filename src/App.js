@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
 import './App.css';
 import Display from './components/SimpleCard';
 import WordCard from './components/WorldCard';
+import Footer from './components/Footer';
+import { ExpandLess, Add } from '@material-ui/icons';
+
 function App() {
   const [newData, setNewData] = useState(false); // Recebe novos dados
   const [loading, setLoading] = useState(true); // O dados estão carregando?
   const [loopSize, setLoopSize] = useState(8); // Quantos cards serão carregados
-  // const isMobile = window.innerWidth <= 500;
+  const focusElement = useRef(null);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-
     axios({
       method: 'GET',
       url: 'https://covid19api.xapix.io/v2/locations',
@@ -30,7 +31,13 @@ function App() {
 
   function incLoopSize() {
     if (loopSize + 8 < newData.locations.length) setLoopSize(loopSize + 8);
+  }
 
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   }
 
   function generateCardDivs() {
@@ -46,10 +53,9 @@ function App() {
   }
 
   return (
-
     <div className="app">
       <header>
-        <a href="/" title="Data Covid" >
+        <a href="/" title="Data Covid">
           <h1>
             <p>data</p>COVID
           </h1>
@@ -71,32 +77,34 @@ function App() {
         <>
           <WordCard dataProps={newData}></WordCard>
 
-          <div className="cards">{generateCardDivs() /* All Cards */}</div>
+          <div ref={focusElement} tabIndex="0" className="cards">
+            {generateCardDivs() /* All Cards */}
+          </div>
+          {focusElement.current !== null ? focusElement.current.focus() : false}
         </>
       )}
 
       <div className="button-plus-div">
         {loopSize < 260 && newData !== false ? (
-          <button title="Ver mais" onClick={incLoopSize}>+</button>
+          <button title="Ver mais" onClick={incLoopSize}>
+            <Add></Add>
+          </button>
         ) : (
           false
         )}
       </div>
 
-      <footer>
-        <p>
-          Desenvolvido por{' '}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Github"
-            href="https://github.com/Lukenoutte"
-          >
-            @Lukenoutte
-          </a>
-        </p>
-      </footer>
+      {loopSize > 30 ? (
+        <div className="button-scrolltop-div">
+          <button title="Subir" onClick={scrollToTop}>
+            <ExpandLess className="icon"></ExpandLess>
+          </button>
+        </div>
+      ) : (
+        false
+      )}
 
+      <Footer></Footer>
     </div>
   );
 }

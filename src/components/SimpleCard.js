@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 
 import './SimpleCard.css';
-import BodySimpleCard from "./BodySimpleCard";
+import BodySimpleCard from './BodySimpleCard';
 export default (props) => {
   const [countryData, setCountryData] = useState(false);
-
-
 
   return (
     <div className="simple-card">
