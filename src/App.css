@@ -123,7 +123,7 @@ header p {
 
 .button-scrolltop-div{
 position: fixed;
-z-index: 2;
+
 right: 10px;
 bottom: 10px;
 }
@@ -138,13 +138,12 @@ outline: none;
 border: 2px solid var(--secundary-color);
 opacity: 90%;
 cursor: pointer;
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 2;
 }
 
-.button-scrolltop-div button{
-  display: flex;
-justify-content: center;
-  align-items: center;
-}
 .button-scrolltop-div button:hover{
   border: 2px solid var(--world-hover);
 }
