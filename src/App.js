@@ -30,6 +30,7 @@ function App() {
   }
 
   function incLoopSize() {
+    focusElement.current.focus()
     if (loopSize + 8 < newData.locations.length) setLoopSize(loopSize + 8);
   }
 
@@ -78,21 +79,21 @@ function App() {
           <WordCard dataProps={newData}></WordCard>
 
           <div ref={focusElement} tabIndex="0" className="cards">
-            {generateCardDivs() /* All Cards */}
+            {generateCardDivs() /* Todos os Cards */}
+
+            <div className="button-plus-div"> 
+              {loopSize < 260 && newData !== false ? (
+                <button title="Ver mais" onClick={incLoopSize}>
+                  <Add></Add>
+                </button>
+              ) : (
+                false
+              )}
+            </div>
+
           </div>
-          {focusElement.current !== null ? focusElement.current.focus() : false}
         </>
       )}
-
-      <div className="button-plus-div">
-        {loopSize < 260 && newData !== false ? (
-          <button title="Ver mais" onClick={incLoopSize}>
-            <Add></Add>
-          </button>
-        ) : (
-          false
-        )}
-      </div>
 
       {loopSize > 30 ? (
         <div className="button-scrolltop-div">

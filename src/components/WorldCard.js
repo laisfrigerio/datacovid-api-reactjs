@@ -21,7 +21,7 @@ export default (props) => {
 return(
   <div className="card-world">
   <div className="world-and-icon">
-  <h2>Mundo</h2> <Public className="icon"></Public>
+  <h2>COVID-19 no Mundo</h2> <Public className="icon"></Public>
   </div>
   <p>
     <strong>Casos confirmados: </strong>
