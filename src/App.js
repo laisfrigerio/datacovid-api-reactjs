@@ -12,15 +12,24 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [loopSizeFromCards, setLoopSizeFromCards] = useState(8);
   const focusElement = useRef(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
+
     axios({
       method: 'GET',
       url: 'https://covid19api.xapix.io/v2/locations',
     }).then((res) => {
       setDataFromApi(res.data);
       setIsLoading(false);
-    });
+    }).catch(error => {
+      if(error.status){
+        setError(error.status);
+      }else{
+        setError(error);
+      }
+
+     });
   }, []);
 
   function sortLocationsArray() {
@@ -64,7 +73,7 @@ function App() {
         </a>
       </header>
 
-      {isLoading && (
+      {isLoading && !error && (
         /* Anel de carregamento */
         /* https://loading.io */
         <div className="loading-ring">
@@ -74,6 +83,12 @@ function App() {
         </div>
         /* Fim do anel de carregamento */
       )}
+      {isLoading && error !== false &&
+      /*Erro */
+      <div className="error-div">
+      <h2>Ops! Ocorreu um erro :(</h2>
+      </div>
+      }
 
       {!isLoading && (
         <>

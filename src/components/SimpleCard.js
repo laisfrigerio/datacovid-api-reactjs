@@ -12,15 +12,10 @@ export default (props) => {
       {countryData /* Evita que chame locations undefined */ && (
         <>
           <div className="header-card">
-            {countryData.country.length < 12 ? (
-              <h2>
-                {countryData.country} ({countryData.country_code})
-              </h2>
-            ) : (
-              <h3>
-                {countryData.country} ({countryData.country_code})
-              </h3>
-            )}
+            <h2 className={countryData.country.length > 12?"big-name":undefined}>
+              {countryData.country} ({countryData.country_code})
+            </h2>
+
           </div>
 
           <BodySimpleCard dataProps={countryData}></BodySimpleCard>

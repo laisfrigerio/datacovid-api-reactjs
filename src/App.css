@@ -78,6 +78,13 @@ header p {
   outline: none;
 }
 
+.error-div{
+  min-height: 86%;
+  display: flex;
+  align-items: center;
+  color: var(--world-hover);
+}
+
 /* Ring loading */
 
 .loading-ring {
