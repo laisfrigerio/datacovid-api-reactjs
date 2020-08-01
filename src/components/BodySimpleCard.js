@@ -2,11 +2,9 @@ import React from 'react';
 
 export default (props) => {
 
-  function dotsNumber(number) {
-    // Adicionar pontos aos números
-    return number !== null
-      ? number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
-      : '?';
+  function putDotsOnNumber(number) {
+      return number !== null
+      ? number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.'): '?';
   }
 
 return(
@@ -14,32 +12,32 @@ return(
 <div className="body-card">
 <p>
   <strong>Casos: </strong>
-  {dotsNumber(props.dataProps.latest.confirmed)}
+  {putDotsOnNumber(props.dataProps.latest.confirmed)}
 </p>
+
 <br />
+
 <p>
-  <strong>Mortes: </strong> {dotsNumber(props.dataProps.latest.deaths)}
+  <strong>Mortes: </strong> {putDotsOnNumber(props.dataProps.latest.deaths)}
 </p>
 {props.dataProps.province === '' ? (
   <>
     <br />
     <p>
       <strong>População: </strong>
-      {dotsNumber(props.dataProps.country_population)}
+      {putDotsOnNumber(props.dataProps.country_population)}
     </p>
   </>
-) : (
-  false
-)}
+) : (false)}
+
 <br />
+
 {props.dataProps.province !== '' ? (
   <p>
     <strong>Província: </strong>
-    {dotsNumber(props.dataProps.province)}
+    {putDotsOnNumber(props.dataProps.province)}
   </p>
-) : (
-  false
-)}
+) : (false)}
 </div>
 )
 }

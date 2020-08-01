@@ -29,8 +29,14 @@ font-size: 40px;
 }
 
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 500px) {
   .card-world {
     font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .card-world {
+    font-size: 17px;
   }
 }

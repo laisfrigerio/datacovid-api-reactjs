@@ -70,7 +70,7 @@ header p {
   box-shadow: 4px 3px 2px rgba(192, 201, 184);
 }
 
-.cards {
+.all-cards {
   max-width: 1300px;
   display: flex;
   flex-wrap: wrap;
