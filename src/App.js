@@ -64,7 +64,7 @@ function App() {
   }
 
   return (
-    <div className="app">
+    <div className="app flex-just-center">
       <header>
         <a href="/" title="Data Covid">
           <h1>
@@ -94,12 +94,12 @@ function App() {
         <>
           <WorldCard dataProps={dataFromApi}></WorldCard>
 
-          <div ref={focusElement} tabIndex="0" className="all-cards">
+          <div ref={focusElement} tabIndex="0" className="all-cards flex-just-center">
             {generateCardDivs() /* Todos os Cards */}
 
-            <div className="button-plus-div">
+            <div className="button-plus-div flex-just-alig-center">
               {loopSizeFromCards < 260 && dataFromApi !== false ? (
-                <button title="Ver mais" onClick={increaceLoopSize}>
+                <button className="flex-just-alig-center" title="Ver mais" onClick={increaceLoopSize}>
                   <Add></Add>
                 </button>
               ) : (
@@ -112,7 +112,7 @@ function App() {
 
       {loopSizeFromCards > 30 ? (
         <div className="button-scrolltop-div">
-          <button title="Subir" onClick={scrollToTop}>
+          <button className="flex-just-alig-center" title="Subir" onClick={scrollToTop}>
             <ExpandLess className="icon"></ExpandLess>
           </button>
         </div>

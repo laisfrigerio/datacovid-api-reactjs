@@ -1,8 +1,17 @@
-.app {
+.flex-just-alig-center {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-just-center {
+  display: flex;
+  justify-content: center;
+}
+
+.app {
   flex-wrap: wrap;
   margin: 0px;
-  justify-content: center;
 }
 
 header {
@@ -45,9 +54,6 @@ header p {
 .button-plus-div {
   width: 100%;
   height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .button-plus-div button {
@@ -59,9 +65,6 @@ header p {
   color: var(--main-color);
   border: 3px solid var(--main-color);
   outline: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .button-plus-div button:hover {
   color: var(--secundary-color);
@@ -72,13 +75,11 @@ header p {
 
 .all-cards {
   max-width: 1300px;
-  display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   outline: none;
 }
 
-.error-div{
+.error-div {
   min-height: 86%;
   display: flex;
   align-items: center;
@@ -93,7 +94,6 @@ header p {
   width: 80px;
   min-height: 86%;
   display: flex;
-
   align-items: center;
 }
 .loading-ring div {
@@ -128,32 +128,27 @@ header p {
 
 /* End Ring loading */
 
-.button-scrolltop-div{
-position: fixed;
-
-right: 10px;
-bottom: 10px;
+.button-scrolltop-div {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
 }
-.button-scrolltop-div button{
-height: 50px;
-width: 50px;
-background-color: var(--main-color);
-color: var(--secundary-color);
-font-size: 20px;
-border-radius: 30px;
-outline: none;
-border: 2px solid var(--secundary-color);
-cursor: pointer;
-display: flex;
-justify-content: center;
-align-items: center;
+.button-scrolltop-div button {
+  height: 50px;
+  width: 50px;
+  background-color: var(--main-color);
+  color: var(--secundary-color);
+  font-size: 20px;
+  border-radius: 30px;
+  outline: none;
+  border: 2px solid var(--secundary-color);
+  cursor: pointer;
 }
 
-.button-scrolltop-div button:hover{
+.button-scrolltop-div button:hover {
   border: 2px solid var(--world-hover);
 }
 
-.button-scrolltop-div .icon{
-font-size: 30px;
-
+.button-scrolltop-div .icon {
+  font-size: 30px;
 }
