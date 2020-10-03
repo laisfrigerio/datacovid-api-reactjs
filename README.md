@@ -8,7 +8,7 @@ Um site com objetivo de trazer informações sobre a pandemia de forma simples e
 
 API Rest (Axios)
 
-## Stack
+## :heart_decoration: Stack
 
   - React
   - styled-components
@@ -20,7 +20,7 @@ API Rest (Axios)
   - `npm install`
   - `npm start`
 
-## Author
+## :man: Author
 
 [@Lukenoutte](https://github.com/Lukenoutte/)
 
@@ -28,7 +28,7 @@ API Rest (Axios)
 
 [@laisfrigerio](https://github.com/laisfrigerio)
 
-## Change Log
+## :hourglass: Change Log
 
 - `0.2.0` - Add styled-components
 - `0.1.0` - Launch application
