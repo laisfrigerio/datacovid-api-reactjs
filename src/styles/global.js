@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
         flex-wrap: wrap;
         margin: 0px;
     }
-
+    
     .flex-just-alig-center {
         display: flex;
         justify-content: center;

@@ -1,9 +1,3 @@
-.all-cards {
-  max-width: 1300px;
-  flex-wrap: wrap;
-  outline: none;
-}
-
 .error-div {
   min-height: 86%;
   display: flex;

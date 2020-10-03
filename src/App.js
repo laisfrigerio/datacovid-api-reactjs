@@ -4,9 +4,9 @@ import axios from 'axios';
 import './App.css';
 import Display from './components/SimpleCard';
 import WorldCard from './components/WorldCard';
-import ButtonPlus from './components/ButtonPlus';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import ListCard from './components/ListCard';
 import ScrollToTop from './components/ScrollToTop';
 import Spinner from './components/Spinner';
 import GlobalStyle from './styles/global';
@@ -77,11 +77,13 @@ function App() {
         {!isLoading && (
           <>
             <WorldCard dataProps={dataFromApi}></WorldCard>
-
-            <div ref={focusElement} tabIndex="0" className="all-cards flex-just-center">
-              {generateCardDivs() /* Todos os Cards */}
-              <ButtonPlus dataFromApi={dataFromApi} loopSizeFromCards={loopSizeFromCards} onClick={increaceLoopSize} />
-            </div>
+            <ListCard 
+              dataFromApi={dataFromApi} 
+              focusElement={focusElement}
+              generateCardDivs={generateCardDivs} 
+              loopSizeFromCards={loopSizeFromCards} 
+              onClick={increaceLoopSize} 
+            />
           </>
         )}
 
