@@ -5,6 +5,7 @@ import './App.css';
 import Display from './components/SimpleCard';
 import WorldCard from './components/WorldCard';
 import Footer from './components/Footer';
+import Header from './components/Header';
 import GlobalStyle from './styles/global';
 import { ExpandLess, Add } from '@material-ui/icons';
 
@@ -68,13 +69,7 @@ function App() {
     <>
       <GlobalStyle />
       <div className="app flex-just-center">
-        <header>
-          <a href="/" title="Data Covid">
-            <h1>
-              <p>data</p>COVID
-            </h1>
-          </a>
-        </header>
+        <Header />
 
         {isLoading && !error && (
           /* Anel de carregamento */
