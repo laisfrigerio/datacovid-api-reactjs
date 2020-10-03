@@ -1,4 +1,4 @@
-# dataCovid
+# :copyright: dataCovid
 
 Um site com objetivo de trazer informações sobre a pandemia de forma simples e objetiva.
 
@@ -15,7 +15,7 @@ API Rest (Axios)
   - Consume external API with axios
   - Material UI icons
 
-## Run
+## :gem: Run
 
   - `npm install`
   - `npm start`
@@ -24,7 +24,7 @@ API Rest (Axios)
 
 [@Lukenoutte](https://github.com/Lukenoutte/)
 
-## Colaboradores
+## :muscle: Colaboradores
 
 [@laisfrigerio](https://github.com/laisfrigerio)
 
