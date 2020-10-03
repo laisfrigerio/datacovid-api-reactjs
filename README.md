@@ -20,11 +20,11 @@ API Rest (Axios)
   - `npm install`
   - `npm start`
 
-## Autor
+## Author
 
 [@Lukenoutte](https://github.com/Lukenoutte/)
 
-## :muscle: Colaboradores
+## :muscle: Collaborators
 
 [@laisfrigerio](https://github.com/laisfrigerio)
 

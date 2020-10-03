@@ -1,9 +1,10 @@
 import React from 'react';
-import './Footer.css';
-export default (props) => {
+import Footer from './styles';
+
+export default () => {
 
   return (
-    <footer>
+    <Footer>
       <p>
         Desenvolvido por{' '}
         <a
@@ -15,6 +16,6 @@ export default (props) => {
           @Lukenoutte
         </a>
       </p>
-    </footer>
+    </Footer>
   );
 };
