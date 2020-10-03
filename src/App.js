@@ -4,12 +4,12 @@ import axios from 'axios';
 import './App.css';
 import Display from './components/SimpleCard';
 import WorldCard from './components/WorldCard';
+import ButtonPlus from './components/ButtonPlus';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import ScrollToTop from './components/ScrollToTop';
 import Spinner from './components/Spinner';
 import GlobalStyle from './styles/global';
-import { Add } from '@material-ui/icons';
 
 function App() {
   const [dataFromApi, setDataFromApi] = useState(false);
@@ -48,13 +48,6 @@ function App() {
       setLoopSizeFromCards(loopSizeFromCards + 8);
   }
 
-  function scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  }
-
   function generateCardDivs() {
     var cardsDivs = [];
 
@@ -72,18 +65,13 @@ function App() {
       <GlobalStyle />
       <div className="app flex-just-center">
         <Header />
+        <Spinner isLoading={isLoading} error={error} />
 
-        {isLoading && !error && (
-          /* Anel de carregamento */
-          /* https://loading.io */
-          <Spinner />
-          /* Fim do anel de carregamento */
-        )}
         {isLoading && error !== false &&
-        /*Erro */
-        <div className="error-div">
-        <h2>Ops! Ocorreu um erro :(</h2>
-        </div>
+          /*Erro */
+          <div className="error-div">
+            <h2>Ops! Ocorreu um erro :(</h2>
+          </div>
         }
 
         {!isLoading && (
@@ -92,24 +80,12 @@ function App() {
 
             <div ref={focusElement} tabIndex="0" className="all-cards flex-just-center">
               {generateCardDivs() /* Todos os Cards */}
-
-              <div className="button-plus-div flex-just-alig-center">
-                {loopSizeFromCards < 260 && dataFromApi !== false ? (
-                  <button className="flex-just-alig-center" title="Ver mais" onClick={increaceLoopSize}>
-                    <Add></Add>
-                  </button>
-                ) : (
-                  false
-                )}
-              </div>
+              <ButtonPlus dataFromApi={dataFromApi} loopSizeFromCards={loopSizeFromCards} onClick={increaceLoopSize} />
             </div>
           </>
         )}
 
-        {loopSizeFromCards > 30 ? (
-          <ScrollToTop onClick={scrollToTop} />
-        ) : (false)}
-
+        <ScrollToTop loopSizeFromCards={loopSizeFromCards} />
         <Footer></Footer>
       </div>
     </>

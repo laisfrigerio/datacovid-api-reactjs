@@ -9,6 +9,11 @@ const GlobalStyle = createGlobalStyle`
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
 
+    .app {
+        flex-wrap: wrap;
+        margin: 0px;
+    }
+
     .flex-just-alig-center {
         display: flex;
         justify-content: center;

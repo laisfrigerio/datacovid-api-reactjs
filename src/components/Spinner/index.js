@@ -1,13 +1,19 @@
 import React from 'react';
 import Spinner from './styles';
 
-export default () => {
+export default ({isLoading, error}) => {
 
-  return (
-    <Spinner>
-      <div></div>
-      <div></div>
-      <div></div>
-    </Spinner>
-  );
+  /* Anel de carregamento */
+  /* https://loading.io */
+  if (isLoading && !error) {
+    return (
+      <Spinner>
+        <div></div>
+        <div></div>
+        <div></div>
+      </Spinner>
+    );
+  }
+
+  return null;
 };
