@@ -10,7 +10,7 @@ const Footer = styled.footer`
 
     p {
         font-size: 12px;
-        color: var(--secundary-color);
+        color: ${theme.colors.secundaryColor};
         margin-top: 30px;
     }
 
