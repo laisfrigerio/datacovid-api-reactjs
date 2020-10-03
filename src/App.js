@@ -6,8 +6,10 @@ import Display from './components/SimpleCard';
 import WorldCard from './components/WorldCard';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import ScrollToTop from './components/ScrollToTop';
+import Spinner from './components/Spinner';
 import GlobalStyle from './styles/global';
-import { ExpandLess, Add } from '@material-ui/icons';
+import { Add } from '@material-ui/icons';
 
 function App() {
   const [dataFromApi, setDataFromApi] = useState(false);
@@ -74,11 +76,7 @@ function App() {
         {isLoading && !error && (
           /* Anel de carregamento */
           /* https://loading.io */
-          <div className="loading-ring">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
+          <Spinner />
           /* Fim do anel de carregamento */
         )}
         {isLoading && error !== false &&
@@ -109,11 +107,7 @@ function App() {
         )}
 
         {loopSizeFromCards > 30 ? (
-          <div className="button-scrolltop-div">
-            <button className="flex-just-alig-center" title="Subir" onClick={scrollToTop}>
-              <ExpandLess className="icon"></ExpandLess>
-            </button>
-          </div>
+          <ScrollToTop onClick={scrollToTop} />
         ) : (false)}
 
         <Footer></Footer>
