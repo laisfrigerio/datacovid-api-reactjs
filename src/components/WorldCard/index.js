@@ -1,7 +1,8 @@
 import React from 'react';
 import { Public } from '@material-ui/icons';
+import Card from './styles';
 
-export default (props) => {
+export default ({dataProps}) => {
   function formatDateString(date) {
     let onlyDate = date.slice(0, -17);
     let year = onlyDate.slice(0, -6);
@@ -15,21 +16,21 @@ export default (props) => {
   }
 
   return (
-    <div className="card-world">
+    <Card>
       <div className="world-and-icon">
         <h2>COVID-19 no Mundo</h2> <Public className="icon"></Public>
       </div>
       <p>
         <strong>Casos confirmados: </strong>
-        {putDotsOnNumber(props.dataProps.latest.confirmed)}
+        {putDotsOnNumber(dataProps.latest.confirmed)}
       </p>
       <p>
-        <strong>Mortes:</strong> {putDotsOnNumber(props.dataProps.latest.deaths)}
+        <strong>Mortes:</strong> {putDotsOnNumber(dataProps.latest.deaths)}
       </p>
       <p>
         <strong>Última atualização: </strong>
-        {formatDateString(props.dataProps.locations[0].last_updated)}
+        {formatDateString(dataProps.locations[0].last_updated)}
       </p>
-    </div>
+    </Card>
   );
 };
