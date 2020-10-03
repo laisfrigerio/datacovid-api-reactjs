@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
-import './App.css';
-import Display from './components/SimpleCard';
-import WorldCard from './components/WorldCard';
+import Error from './components/Error';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import ListCard from './components/ListCard';
 import ScrollToTop from './components/ScrollToTop';
 import Spinner from './components/Spinner';
+import SimpleCard from './components/SimpleCard';
+import WorldCard from './components/WorldCard';
 import GlobalStyle from './styles/global';
 
 function App() {
@@ -53,7 +53,7 @@ function App() {
 
     for (let i = 0; i < loopSizeFromCards; i++) {
       cardsDivs.push(
-        <Display key={i} dataProps={sortLocationsArray()[i]}></Display>
+        <SimpleCard key={i} dataProps={sortLocationsArray()[i]} />
       );
     }
 
@@ -66,13 +66,7 @@ function App() {
       <div className="app flex-just-center">
         <Header />
         <Spinner isLoading={isLoading} error={error} />
-
-        {isLoading && error !== false &&
-          /*Erro */
-          <div className="error-div">
-            <h2>Ops! Ocorreu um erro :(</h2>
-          </div>
-        }
+        <Error isLoading={isLoading} error={error} />
 
         {!isLoading && (
           <>
